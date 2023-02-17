@@ -6,6 +6,6 @@ export class AppService {
   // the getHello() method is responsible for returning the string 'Hello World!'
   getHello(): string {
     // the getHello() method returns the string 'Hello World!'
-    return 'Hello World!';
+    return 'Hello Nest!';
   }
 }

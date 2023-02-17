@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
@@ -7,6 +8,14 @@ async function bootstrap() {
   // the create() method accepts a single argument which is the root module of the application
   // the root module is the AppModule class
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
+
   // the application instance is then used to start the HTTP server by calling the listen() method
   await app.listen(3000);
 }
